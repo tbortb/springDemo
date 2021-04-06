@@ -29,4 +29,17 @@ public class HelloControllerTests {
             .andExpect(MockMvcResultMatchers.content().string("Hello World"));
     }
 
+    @Test
+    void sayHello_myName_rtnHelloName() throws Exception {
+        // /hello should give string "Hello " plus the name
+
+        //Act
+        mockMvc.perform(MockMvcRequestBuilders.get("/hello?name=Johnny"))
+
+
+                //Assert
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().string("Hello Johnny"));
+    }
+
 }
